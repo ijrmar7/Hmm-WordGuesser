@@ -32,4 +32,5 @@
 ## 📄 License
 
 📄 Hmm? - A Word Guesser Game is released under the GNU General Public License v3.0. You can use, modify, and distribute the code for personal or commercial purposes, as long as you comply with the terms of the license.
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-green.svg)](https://github.com/ijrmar7/Hmm-WordGuesser/blob/main/LICENSE)
