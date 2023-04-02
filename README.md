@@ -21,8 +21,8 @@
 
 1. Clone the repository: `git clone https://github.com/ijrmar7/Hmm-WordGuesser.git`
 2. Navigate to the project directory: `cd Hmm-WordGuesser`
-3. Compile the program: `javac WordGuesser.java`
-4. Run the program: `java WordGuesser`
+3. Compile the program: `javac Hmm.java`
+4. Run the program: `java Hmm`
 
 
 ## 🤝 Contributing
