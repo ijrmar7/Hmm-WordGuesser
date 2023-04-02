@@ -1,6 +1,6 @@
 # Hmm? - A Word Guesser Game :thinking:
 
-📝🔍🤔 Welcome to Hmm? - A Word Guesser Game! This is a Java program that challenges you to guess a randomly generated word. 🔍📝🤔
+📝🔍🤔 Welcome to Hmm? - A Word Guesser Game! This is a Java program that challenges you to guess a randomly chosen word. 🔍📝🤔
 
 ## 🕹️ How to Play
 
