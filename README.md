@@ -1,4 +1,4 @@
-# Hmm? - A Word Guesser Game 🤔🕹️
+# 🤔 Hmm? - A Word Guesser Game 🕹️
 
 📝🔍🤔 Hmm? - A Word Guesser Game is a Java program that challenges you to guess a randomly chosen word. The program displays a series of dashes that represent the letters in the word. Your goal is to guess the word by inputting the whole word at once. The program checks if the word is correct and displays a message to indicate whether the guess was correct or incorrect. You can continue guessing words until you either correctly guess the entire word or run out of attempts.
 
@@ -14,7 +14,6 @@
 
 * Java JDK 11 or higher
 * Git
-* [Other requirements]
 
 
 ## 💻 Installation
