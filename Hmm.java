@@ -43,6 +43,8 @@ class Hmm {
     }
 
     public static void print() {
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();  
         System.out.print(CYAN);
         System.out.println("                                 ,------.  ");
         System.out.println(",--.  ,--.,--.   ,--.,--.   ,--.'  .--.  ' ");
@@ -52,19 +54,21 @@ class Hmm {
         System.out.println("`--'  `--'`--'   `--'`--'   `--' .---.     ");
         System.out.println("                                 '---'     ");
         System.out.print(RESET_ALL);
-        println_color(CYAN, "    (p) Hmm? - A Word Guesser Game");
-        println_color(GREEN, "    (c) Created by: Jonash Marcelino");
-        println_color(PURPLE, "    (c) Github: https://github.com/ijrmar7");
+        println_color(CYAN, "    🤔 Hmm? - A Word Guesser Game 🕹️");
+        println_color(GREEN, "    😎 By: Jonash Marcelino");
+        println_color(PURPLE, "    💻 Github: ijrmar7");
         for(int i = 0; i < ATTEMPS; i++)
         {
             System.out.print("             ");            
             for (int j = 0; j < LENGTH; j++)
             {
-                System.out.print(WHITE_BG);
-                print_color(BLACK," " + GUESSES[i][j] + " ");
+                print_color(WHITE," " + GUESSES[i][j] + " ");
             }
             System.out.println();
         }
+        println_color(BLUE, "    ℹ️ The game have already randomly selected a 5 letter word. 📖");
+        println_color(BLUE, "    ℹ️ Now, try guessing and I will help you in this challenge. 🆘");
+        println_color(BLUE, "    ℹ️ I will change the color of the text as a hint! 🪄");
     }
 
     public static void main(String[] args) {
@@ -81,13 +85,13 @@ class Hmm {
                 }
             }
             print();
-            print_color(CYAN, "    (?) Enter your guess: ");
+            print_color(CYAN, "    🤔 Enter your guess 📝: ");
             guess = scan.next();
             guess = guess.toUpperCase();
             if (guess.length() != 5)
             {
-                System.out.println(YELLOW +"(i) You are supposed to enter a " + LENGTH + " letter word." + RESET_ALL);
-                System.out.println(YELLOW + "(i) Is it clear? I am going to ask you a 5 letter word again." + RESET_ALL);
+                System.out.println(YELLOW + "    ⚠️ You are supposed to enter a " + LENGTH + " letter word." + RESET_ALL);
+                System.out.println(YELLOW + "    ⚠️ Is it clear? I am going to ask you a 5 letter word again." + RESET_ALL);
                 try {
                     Thread.sleep(5000);
                 } catch (InterruptedException e) {
