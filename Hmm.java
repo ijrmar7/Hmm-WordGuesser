@@ -6,9 +6,10 @@ class Hmm {
     public static final int ATTEMPS = 6;
     public static final int LENGTH = 5;
     public static final String TO_GUESS = "DOORS";
+    public static String guess;
 
     // Initialize array
-    public static String[][] GUESSES = new String[ATTEMPS][LENGTH];
+    public static char[][] GUESSES = new char[ATTEMPS][LENGTH];
 
     // Text Colors
     public static final String BLACK = "\u001B[30m";
@@ -31,15 +32,36 @@ class Hmm {
     public static final String CYAN_BG = "\u001B[46m";
     public static final String WHITE_BG = "\u001B[47m";
 
+    // Print with new line with text color
+    public static void println_color(String color, String text) {
+        System.out.println(color + text + RESET_ALL);
+    }
+
+    // Print with text color
+    public static void print_color(String color, String text) {
+        System.out.print(color + text + RESET_ALL);
+    }
+
     public static void print() {
-        System.out.println("Hmm? - A Word Guesser Game");
-        System.out.println("Created by: Jonash Marcelino");
-        System.out.println("Github: https://github.com/ijrmar7");
+        System.out.print(CYAN);
+        System.out.println("                                 ,------.  ");
+        System.out.println(",--.  ,--.,--.   ,--.,--.   ,--.'  .--.  ' ");
+        System.out.println("|  '--'  ||   `.'   ||   `.'   |'--' _|  | ");
+        System.out.println("|  .--.  ||  |'.'|  ||  |'.'|  | .--' __'  ");
+        System.out.println("|  |  |  ||  |   |  ||  |   |  | `---'     ");
+        System.out.println("`--'  `--'`--'   `--'`--'   `--' .---.     ");
+        System.out.println("                                 '---'     ");
+        System.out.print(RESET_ALL);
+        println_color(CYAN, "    (p) Hmm? - A Word Guesser Game");
+        println_color(GREEN, "    (c) Created by: Jonash Marcelino");
+        println_color(PURPLE, "    (c) Github: https://github.com/ijrmar7");
         for(int i = 0; i < ATTEMPS; i++)
         {
+            System.out.print("             ");            
             for (int j = 0; j < LENGTH; j++)
             {
-                System.out.print(GUESSES[i][j]);
+                System.out.print(WHITE_BG);
+                print_color(BLACK," " + GUESSES[i][j] + " ");
             }
             System.out.println();
         }
@@ -55,20 +77,27 @@ class Hmm {
             {
                 for (int j = 0; j < LENGTH; j++)
                 {
-                    GUESSES[i][j] = WHITE_BG + BLACK + " # " + RESET_ALL;
+                    GUESSES[i][j] = '_';
                 }
             }
             print();
-            System.out.print("Enter your guess: ");
-            String guess = scan.next();
+            print_color(CYAN, "    (?) Enter your guess: ");
+            guess = scan.next();
+            guess = guess.toUpperCase();
             if (guess.length() != 5)
             {
-                System.out.println("(i) You are supposed to enter a " + LENGTH + " letter word.");
+                System.out.println(YELLOW +"(i) You are supposed to enter a " + LENGTH + " letter word." + RESET_ALL);
+                System.out.println(YELLOW + "(i) Is it clear? I am going to ask you a 5 letter word again." + RESET_ALL);
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 continue;
             }
             for (int i = 0; i < guess.length(); i++)
             {
-                GUESSES[no_of_attemps][i] = WHITE_BG + BLACK + " " + Character.toString(guess.charAt(i)).toUpperCase() + " " + RESET_ALL;
+                GUESSES[no_of_attemps][i] = guess.charAt(i);
             }
             if(guess.equalsIgnoreCase(TO_GUESS))
             {
