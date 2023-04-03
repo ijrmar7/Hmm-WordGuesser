@@ -5,7 +5,7 @@
 
 ## 🕹️ How to Play
 
-🕹️ To play Hmm? - A Word Guesser Game, simply run the program and follow the instructions on the screen. You will be prompted to input a word for each guess. The number of attempts you have is based on the length of the randomly chosen word. For example, if the word is 5 letters long, you will have 6 attempts. If you run out of attempts before correctly guessing the word, the game will end and you lose.
+🕹️ To play Hmm? - A Word Guesser Game, simply run the program and follow the instructions on the screen. You will be prompted to input a word for each guess. The number of attempts you have is 6 attempts. If you run out of attempts before correctly guessing the word, the game will end and you lose.
 
 🔍 To help you guess the word, Hmm? - A Word Guesser Game includes a hint system. If a letter you entered is in the word to guess and also at the correct position, the background of the letter will be green. If the letter is in the word to guess but not at the correct position, the background of the letter will be yellow. If the letter is not in the word to guess, the background of the letter will be red.
 
