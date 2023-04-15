@@ -1,18 +1,35 @@
-## Getting Started
+# 🤔 Hmm? - A Word Guesser Game 🕹️
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+📝🔍🤔 Hmm? - A Word Guesser Game is a Java program that challenges you to guess a randomly chosen word. The program displays a series of dashes that represent the letters in the word. Your goal is to guess the word by inputting the whole word at once. The program checks if the word is correct and displays a message to indicate whether the guess was correct or incorrect. You can continue guessing words until you either correctly guess the entire word or run out of attempts.
 
-## Folder Structure
 
-The workspace contains two folders by default, where:
+## 🕹️ How to Play
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+🕹️ To play Hmm? - A Word Guesser Game, simply run the program and follow the instructions on the screen. You will be prompted to input a word for each guess. The number of attempts you have is 6 attempts. If you run out of attempts before correctly guessing the word, the game will end and you lose.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+🔍 To help you guess the word, Hmm? - A Word Guesser Game includes a hint system. If a letter you entered is in the word to guess and also at the correct position, the background of the letter will be green. If the letter is in the word to guess but not at the correct position, the background of the letter will be yellow. If the letter is not in the word to guess, the background of the letter will be red.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
 
-## Dependency Management
+## 📋 Requirements
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+* Java JDK 11 or higher
+* Git
+
+
+## 💻 Installation
+
+1. Clone the repository: `git clone https://github.com/ijrmar7/Hmm-WordGuesser.git`
+2. Navigate to the project directory: `cd Hmm-WordGuesser`
+3. Compile the program: `javac Hmm.java`
+4. Run the program: `java Hmm`
+
+
+## 🤝 Contributing
+
+🤝 If you are interested in contributing to Hmm? - A Word Guesser Game, you are welcome to submit pull requests or raise issues on the GitHub repository. Contributions could include new features, bug fixes, code refactoring, or documentation improvements.
+
+## 📄 License
+
+📄 Hmm? - A Word Guesser Game is released under the GNU General Public License v3.0. You can use, modify, and distribute the code for personal or commercial purposes, as long as you comply with the terms of the license.
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-green.svg)](https://github.com/ijrmar7/Hmm-WordGuesser/blob/main/LICENSE)
