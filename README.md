@@ -32,8 +32,8 @@ To play Hmm? - A Word Guesser Game on Duo play, simply run the program, select d
 4. Run the program: `java App`
 
 ### Download the release ###
-1. Read release notes[link](https://github.com/w3nash/Hmm-WordGuesser/releases/tag/Hmm-v0.2-beta "Release Notes").
-2. Download [link](https://github.com/w3nash/Hmm-WordGuesser/releases/download/Hmm-v0.2-beta/HmmWordGuesser-v0.2-beta.jar "release").
+1. Read [Release Notes](https://github.com/w3nash/Hmm-WordGuesser/releases/tag/Hmm-v0.2-beta "Release Notes").
+2. Download [release](https://github.com/w3nash/Hmm-WordGuesser/releases/download/Hmm-v0.2-beta/HmmWordGuesser-v0.2-beta.jar "release").
 3. Run the program `java -jar HmmWordGuesser-*.jar`
 
 
