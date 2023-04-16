@@ -5,10 +5,14 @@
 
 ## 🕹️ How to Play
 
-🕹️ To play Hmm? - A Word Guesser Game, simply run the program and follow the instructions on the screen. You will be prompted to input a word for each guess. The number of attempts you have is 6 attempts. If you run out of attempts before correctly guessing the word, the game will end and you lose.
+### Solo Play ###
+🕹️ To play Hmm? - A Word Guesser Game on solo play, simply run the program, select solo play, and follow the instructions on the screen. You will be prompted to input a word for each guess. The number of attempts you have is 6 attempts. If you guess the word before you run out of attempts, then you win. If you run out of attempts before correctly guessing the word, the game will end, and you lose.
 
-🔍 To help you guess the word, Hmm? - A Word Guesser Game includes a hint system. If a letter you entered is in the word to guess and also at the correct position, the background of the letter will be green. If the letter is in the word to guess but not at the correct position, the background of the letter will be yellow. If the letter is not in the word to guess, the background of the letter will be red.
+### Duo Play ###
+To play Hmm? - A Word Guesser Game on Duo play, simply run the program, select duo play, and follow the instructions on the screen. Both players will be prompted to input a word for each guess. Both players will have 6 attempts each. If a player guessed the word before running out of attempts, that player wins. If both players run out of attempts, then the winner will be the player with the highest points.
 
+### Hint system ###
+🔍 To help you guess the word, Hmm? - A Word Guesser Game includes a hint system. If a letter you entered is in the word to guess and at the correct position, the background of the letter will be green. If the letter is in the word to guess but not at the correct position, the background of the letter will be yellow. If the letter is not in the word to guess, the background of the letter will be red.
 
 ## 📋 Requirements
 
@@ -18,10 +22,19 @@
 
 ## 💻 Installation
 
+### Cloning the repository ###
 1. Clone the repository: `git clone https://github.com/ijrmar7/Hmm-WordGuesser.git`
 2. Navigate to the project directory: `cd Hmm-WordGuesser`
-3. Compile the program: `javac Hmm.java`
-4. Run the program: `java Hmm`
+3. Compile the program:
+    - `javac Printer.java`
+    - `javac Game.java`
+    - `javac App.java`
+4. Run the program: `java App`
+
+### Download the release ###
+1. Read release notes[link](https://github.com/w3nash/Hmm-WordGuesser/releases/tag/Hmm-v0.2-beta "Release Notes").
+2. Download [link](https://github.com/w3nash/Hmm-WordGuesser/releases/download/Hmm-v0.2-beta/HmmWordGuesser-v0.2-beta.jar "release").
+3. Run the program `java -jar HmmWordGuesser-*.jar`
 
 
 ## 🤝 Contributing
@@ -32,4 +45,4 @@
 
 📄 Hmm? - A Word Guesser Game is released under the GNU General Public License v3.0. You can use, modify, and distribute the code for personal or commercial purposes, as long as you comply with the terms of the license.
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-green.svg)](https://github.com/ijrmar7/Hmm-WordGuesser/blob/main/LICENSE)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-green.svg)](https://github.com/ijrmar7/Hmm-WordGuesser/blob/master/LICENSE)
