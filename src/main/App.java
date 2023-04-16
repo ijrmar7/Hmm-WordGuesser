@@ -37,7 +37,6 @@ public class App {
             else if (option == 1)
             {
                 Boolean isWinner = false;
-                int ATTEMPT = Hmm.NO_OF_ATTEMPTS;
                 do
                 {
                     Hmm.menu(2);
@@ -63,7 +62,7 @@ public class App {
                     }
                     Hmm.NO_OF_ATTEMPTS++;
                 }
-                while(ATTEMPT != Hmm.ATTEMPTS);
+                while(Hmm.NO_OF_ATTEMPTS != Hmm.ATTEMPTS);
                 Hmm.menu(2);
                 Hmm.printResult(isWinner);
             }
