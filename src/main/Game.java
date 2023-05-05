@@ -18,19 +18,21 @@ public class Game {
     String TO_GUESS = chooseWord().toUpperCase();
 
     Game() {
+        newGame();
+    }
+    
+    void newGame() {
+        TO_GUESS = chooseWord().toUpperCase();
+        NO_OF_ATTEMPTS = 0;
         // Initialize the array to have some dash
-        for(int i = 0; i < ATTEMPTS; i++)
-        {
-            for (int j = 0; j < LENGTH; j++)
-            {
+        for (int i = 0; i < ATTEMPTS; i++) {
+            for (int j = 0; j < LENGTH; j++) {
                 guessBox[i][j] = '_';
             }
         }
         // Initialize the array to fill WRONG
-        for(int i = 0; i < ATTEMPTS; i++)
-        {
-            for (int j = 0; j < LENGTH; j++)
-            {
+        for (int i = 0; i < ATTEMPTS; i++) {
+            for (int j = 0; j < LENGTH; j++) {
                 scores[i][j] = WRONG;
             }
         }
@@ -48,8 +50,6 @@ public class Game {
             delay(2);
             Printer.newline(Printer.CYAN, "🔎 NO. OF ATTEMPTS 👌: " + Printer.WHITE + NO_OF_ATTEMPTS);
             delay(2);
-            Printer.newline(Printer.CYAN, "🔢 SCORES 😎: 60/60");
-            delay(2);
         }
         else
         {
@@ -58,8 +58,6 @@ public class Game {
             Printer.newline(Printer.CYAN, "🥲 YOU ARE OUT OF ATTEMPTS AND YOU LOSE. 0️⃣");
             delay(2);
             Printer.newline(Printer.CYAN, "🤔 WORD TO GUESS 📝: " + Printer.WHITE + TO_GUESS);
-            delay(2);
-            Printer.newline(Printer.CYAN, "🔢 SCORES 😎: " + calculateScore() + "/60");
             delay(2);
         }
     }
@@ -193,7 +191,8 @@ public class Game {
         System.out.print(Printer.RESET_ALL);
         Printer.newline(Printer.CYAN, "🤔 Hmm? - A Word Guesser Game 🕹️");
         Printer.newline(Printer.GREEN, "😎 By: Jonash Marcelino 👌");
-        Printer.newline(Printer.PURPLE, "💻 Github: ijrmar7 🤖");
+        Printer.newline(Printer.PURPLE, "💻 Github: w3nash 🤖");
+        System.out.println();
         if (i == 1)
         {
             Printer.newline(Printer.CYAN, "🤔 MAIN MENU 📝");
@@ -205,19 +204,24 @@ public class Game {
         }
         else if (i == 2)
         {
-            System.out.println();
-            wordBlock();
-            System.out.println();
             Printer.newline(Printer.CYAN, "ℹ️ The game have already randomly selected a 5 letter word. 📖");
             Printer.newline(Printer.CYAN, "ℹ️ Now, try guessing and I will help you in this challenge. 🔍");
-            Printer.newline(Printer.CYAN, "ℹ️ I will change the color of the text as a hint! 🪄");
+            Printer.newline(Printer.CYAN, "ℹ️ I will change the background color of the text as a hint! 🪄");
+            Printer.inline(Printer.RED_BG, " X ");
+            Printer.newline(Printer.CYAN, " ℹ️ means wrong letter.");
+            Printer.inline(Printer.YELLOW_BG, " M ");
+            Printer.newline(Printer.CYAN, " ℹ️ means correct letter but at wrong position.");
+            Printer.inline(Printer.GREEN_BG, " G ");
+            Printer.newline(Printer.CYAN, " ℹ️ means correct letter and correct position.");
             Printer.newline(Printer.CYAN, "ℹ️ Hint 🤖: " + Printer.WHITE + "Starts with " + TO_GUESS.charAt(0));
+            System.out.println();
         }
         else if (i == 3)
         {
             Printer.newline(Printer.CYAN, "💻 CREDITS");
             Printer.newline(Printer.CYAN, "🧑‍💻 Developer:");
             Printer.newline(Printer.CYAN, "Jonash Marcelino");
+            System.out.println();
             Printer.newline(Printer.CYAN, "🤖 ChatGPT Gang: (Support)");
             Printer.newline(Printer.CYAN, "Anthony James Bargo");
             Printer.newline(Printer.CYAN, "John Gabriel Cuadro");

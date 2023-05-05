@@ -31,16 +31,78 @@ public class App {
             }
             else if (option == 2)
             {
-                Printer.inline(Printer.PURPLE, "🛠️ This feature is currently not available.");
-                Hmm.delay(5);
+                Hmm.newGame();
+                Boolean isWinner = false;
+                Game Hmm2 = new Game();
+                Hmm2.TO_GUESS = Hmm.TO_GUESS;
+                do
+                {
+                    Hmm.menu(2);
+                    Printer.newline(Printer.CYAN, "PLAYER 1");
+                    Hmm.wordBlock();
+                    System.out.println();
+                    Printer.newline(Printer.CYAN, "PLAYER 2");
+                    Hmm2.wordBlock();
+                    System.out.println();
+                    String P1Guess = "";
+                    do
+                    {
+                        Printer.inline(Printer.CYAN, "🤔 Enter Player 1 guess 📝: ");
+                        P1Guess = scanf.next().toUpperCase();
+                        if (P1Guess.length() != Hmm.LENGTH)
+                        {
+                            Printer.newline(Printer.YELLOW, "⚠️ You are supposed to enter a " + Hmm.LENGTH + " letter word.");
+                            Hmm.delay(1);
+                        }
+                    }
+                    while(P1Guess.length() != Hmm.LENGTH);
+                    Hmm.getGuess(P1Guess);
+                    if (Hmm.checkWord())
+                    {
+                        isWinner = true;
+                        Hmm.NO_OF_ATTEMPTS++;
+                        Hmm.menu(2);
+                        break;
+                    }
+                    Hmm.NO_OF_ATTEMPTS++;
+
+                    String P2Guess = "";
+                    do
+                    {
+                        Printer.inline(Printer.CYAN, "🤔 Enter Player 2 guess 📝: ");
+                        P2Guess = scanf.next().toUpperCase();
+                        if (P2Guess.length() != Hmm2.LENGTH)
+                        {
+                            Printer.newline(Printer.YELLOW, "⚠️ You are supposed to enter a " + Hmm2.LENGTH + " letter word.");
+                            Hmm2.delay(1);
+                        }
+                    }
+                    while(P2Guess.length() != Hmm2.LENGTH);
+                    Hmm2.getGuess(P2Guess);
+                    if (Hmm2.checkWord())
+                    {
+                        isWinner = true;
+                        Hmm2.NO_OF_ATTEMPTS++;
+                        Hmm2.menu(2);
+                        break;
+                    }
+                    Hmm2.NO_OF_ATTEMPTS++;
+                }
+                while(Hmm.NO_OF_ATTEMPTS + Hmm2.NO_OF_ATTEMPTS != 12);
+                Hmm.menu(2);
+                Hmm.printResult(isWinner);
             }
             else if (option == 1)
             {
+                Hmm.newGame();
                 Boolean isWinner = false;
                 do
                 {
                     Hmm.menu(2);
                     String guess = "";
+                    System.out.println();
+                    Hmm.wordBlock();
+                    System.out.println();
                     do
                     {
                         Printer.inline(Printer.CYAN, "🤔 Enter your guess 📝: ");
