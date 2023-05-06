@@ -2,6 +2,9 @@ package main;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Game {
@@ -39,7 +42,8 @@ public class Game {
     }
 
     // Print Result
-    void printResult(Boolean b) {
+    void printResult(Boolean b, String mode) {
+        writeHistory(mode);
         if (b)
         {
             Printer.newline(Printer.CYAN, "🎊 CONGRATULATIONS! 🎉");
@@ -153,6 +157,20 @@ public class Game {
         }
     }
 
+    // Write history
+    void writeHistory(String mode) {
+        int points = 60 - (NO_OF_ATTEMPTS * 10);
+        LocalDateTime date = LocalDateTime.now();
+        try {
+            FileWriter fileWriter = new FileWriter(new File("history.csv"), true);
+            fileWriter.write(mode + "," + TO_GUESS + "," + NO_OF_ATTEMPTS  + "," + points + "," + date + "\n");
+            fileWriter.close();
+        } catch (IOException e) {
+            System.out.println("An error occured.");
+            e.printStackTrace();
+        }
+    }
+
     // Choose Word
     String chooseWord() {
         File f = new File("words.txt");
@@ -199,7 +217,8 @@ public class Game {
             Printer.newline(Printer.CYAN, "1. 🕹️ SOLO");
             Printer.newline(Printer.CYAN, "2. 🎮 DUO");
             Printer.newline(Printer.CYAN, "3. 💻 CREDITS");
-            Printer.newline(Printer.CYAN, "4. ❎ EXIT");
+            Printer.newline(Printer.CYAN, "4. 💻 HISTORY");
+            Printer.newline(Printer.CYAN, "5. ❎ EXIT");
             
         }
         else if (i == 2)
@@ -228,6 +247,42 @@ public class Game {
             Printer.newline(Printer.CYAN, "Vaughn Tinte");
             Printer.newline(Printer.CYAN, "Takeshi Okamoto");
             Printer.newline(Printer.CYAN, "Jhorel Jerard Franco");
+        }
+        else if (i == 4)
+        {
+            Printer.newline(Printer.CYAN, "Game History: ");
+            int n = 0;
+            try {
+                Scanner csvScanner = new Scanner(new File("history.csv"));
+                csvScanner.nextLine();
+                while(csvScanner.hasNext()) {
+                    n++;
+                    String[] history = csvScanner.nextLine().split(",");
+                    Printer.newline(Printer.WHITE, "-----------------------------------");
+                    Printer.inline(Printer.GREEN, "MODE: ");
+                    Printer.newline(Printer.WHITE, history[0]);
+                    Printer.inline(Printer.CYAN, "WORD: ");
+                    Printer.newline(Printer.WHITE, history[1]);
+                    Printer.inline(Printer.YELLOW, "ATTEMPT(S): ");
+                    Printer.newline(Printer.WHITE, history[2]);
+                    Printer.inline(Printer.PURPLE, "POINTS: ");
+                    Printer.newline(Printer.WHITE, history[3]);
+                    Printer.inline(Printer.BLUE, "DATE: ");
+                    Printer.newline(Printer.WHITE, history[4]);
+                    Printer.newline(Printer.WHITE, "-----------------------------------");
+                    System.out.println();
+                }
+                csvScanner.close();
+            } catch (FileNotFoundException e) {
+                System.out.println("An error occured.");
+                e.printStackTrace();
+            }
+            if(n == 0) {
+                Printer.newline(Printer.WHITE, "-----------------------------------");
+                Printer.newline(Printer.PURPLE, "No game history found.");
+                Printer.newline(Printer.WHITE, "-----------------------------------");
+            }
+            delay(20);
         }
     }
 }

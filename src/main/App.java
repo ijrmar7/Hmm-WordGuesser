@@ -10,7 +10,7 @@ public class App {
         do
         {
             Hmm.menu(1);
-            Printer.inline(Printer.BLUE, "📝 Select: ");
+            Printer.inline(Printer.BLUE, "\n📝 Select: ");
 
             try {
                 option = scanf.nextInt();
@@ -20,9 +20,14 @@ public class App {
                 scanf.next();
             }
 
-            if (option == 4)
+            if (option == 5)
             {
                 break;
+            }
+            else if (option == 4)
+            {
+                Hmm.menu(4);
+                Hmm.delay(5);
             }
             else if (option == 3)
             {
@@ -38,10 +43,10 @@ public class App {
                 do
                 {
                     Hmm.menu(2);
-                    Printer.newline(Printer.CYAN, "PLAYER 1");
+                    Printer.newline(Printer.CYAN, "🎮 PLAYER 1");
                     Hmm.wordBlock();
                     System.out.println();
-                    Printer.newline(Printer.CYAN, "PLAYER 2");
+                    Printer.newline(Printer.CYAN, "🎮 PLAYER 2");
                     Hmm2.wordBlock();
                     System.out.println();
                     String P1Guess = "";
@@ -62,6 +67,7 @@ public class App {
                         isWinner = true;
                         Hmm.NO_OF_ATTEMPTS++;
                         Hmm.menu(2);
+                        Hmm.printResult(isWinner, "DUO: P1 WINS");
                         break;
                     }
                     Hmm.NO_OF_ATTEMPTS++;
@@ -84,13 +90,16 @@ public class App {
                         isWinner = true;
                         Hmm2.NO_OF_ATTEMPTS++;
                         Hmm2.menu(2);
+                        Hmm2.printResult(isWinner, "DUO: P2 WINS");
                         break;
                     }
                     Hmm2.NO_OF_ATTEMPTS++;
                 }
                 while(Hmm.NO_OF_ATTEMPTS + Hmm2.NO_OF_ATTEMPTS != 12);
                 Hmm.menu(2);
-                Hmm.printResult(isWinner);
+                if(!isWinner) {
+                    Hmm.printResult(isWinner, "DUO");
+                }
             }
             else if (option == 1)
             {
@@ -126,7 +135,7 @@ public class App {
                 }
                 while(Hmm.NO_OF_ATTEMPTS != Hmm.ATTEMPTS);
                 Hmm.menu(2);
-                Hmm.printResult(isWinner);
+                Hmm.printResult(isWinner, "SOLO");
             }
             else
             {
