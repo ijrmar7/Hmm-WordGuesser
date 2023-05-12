@@ -313,7 +313,9 @@ public class Game {
             }
             if(n == 0) {
                 Printer.newline(Printer.CYAN_BG, "                                       ");
-                Printer.newline(Printer.PURPLE, "No game history found.");
+                System.out.print(Printer.CYAN_BG + "  " + Printer.RESET_ALL + " ");
+                Printer.inline(Printer.WHITE, "No game history found.            ");
+                System.out.println(Printer.CYAN_BG + "  " + Printer.RESET_ALL + " ");
                 Printer.newline(Printer.CYAN_BG, "                                       ");
             }
             System.out.println();
