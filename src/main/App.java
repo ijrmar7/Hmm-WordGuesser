@@ -10,7 +10,7 @@ public class App {
         do
         {
             Hmm.menu(1);
-            Printer.inline(Printer.BLUE, "\n📝 Select: ");
+            Printer.inline(Printer.BLUE, "📝 Select: ");
 
             try {
                 option = scanf.nextInt();
@@ -27,15 +27,18 @@ public class App {
             else if (option == 4)
             {
                 Hmm.menu(4);
-                Hmm.delay(5);
+                Printer.inline(Printer.BLUE, "📝 Press enter to continue... ");
+                System.in.read();
             }
             else if (option == 3)
             {
                 Hmm.menu(3);
-                Hmm.delay(5);
+                Printer.inline(Printer.BLUE, "📝 Press enter to continue... ");
+                System.in.read();
             }
             else if (option == 2)
             {
+                int winner = 0;
                 Hmm.newGame();
                 Boolean isWinner = false;
                 Game Hmm2 = new Game();
@@ -43,12 +46,10 @@ public class App {
                 do
                 {
                     Hmm.menu(2);
-                    Printer.newline(Printer.CYAN, "🎮 PLAYER 1");
+                    Printer.inline(Printer.CYAN, "\n🎮 PLAYER 1");
                     Hmm.wordBlock();
-                    System.out.println();
-                    Printer.newline(Printer.CYAN, "🎮 PLAYER 2");
+                    Printer.inline(Printer.CYAN, "🎮 PLAYER 2");
                     Hmm2.wordBlock();
-                    System.out.println();
                     String P1Guess = "";
                     do
                     {
@@ -66,8 +67,8 @@ public class App {
                     {
                         isWinner = true;
                         Hmm.NO_OF_ATTEMPTS++;
+                        winner = 1;
                         Hmm.menu(2);
-                        Hmm.printResult(isWinner, "DUO: P1 WINS");
                         break;
                     }
                     Hmm.NO_OF_ATTEMPTS++;
@@ -89,17 +90,29 @@ public class App {
                     {
                         isWinner = true;
                         Hmm2.NO_OF_ATTEMPTS++;
+                        winner = 2;
                         Hmm2.menu(2);
-                        Hmm2.printResult(isWinner, "DUO: P2 WINS");
                         break;
                     }
                     Hmm2.NO_OF_ATTEMPTS++;
                 }
                 while(Hmm.NO_OF_ATTEMPTS + Hmm2.NO_OF_ATTEMPTS != 12);
                 Hmm.menu(2);
-                if(!isWinner) {
-                    Hmm.printResult(isWinner, "DUO");
+                if (winner == 1) {
+                    Hmm.wordBlock();
+                    Hmm.printResult(isWinner, "DUO", winner);
+                } else if (winner == 2) {
+                    Hmm2.wordBlock();
+                    Hmm2.printResult(isWinner, "DUO", winner);
+                } else {
+                    Printer.inline(Printer.CYAN, "\n🎮 PLAYER 1");
+                    Hmm.wordBlock();
+                    Printer.inline(Printer.CYAN, "🎮 PLAYER 2");
+                    Hmm2.wordBlock();
+                    Hmm.printResult(isWinner, "DUO", winner);
                 }
+                Printer.inline(Printer.BLUE, "\n📝 Press enter to continue... ");
+                System.in.read();
             }
             else if (option == 1)
             {
@@ -109,9 +122,7 @@ public class App {
                 {
                     Hmm.menu(2);
                     String guess = "";
-                    System.out.println();
                     Hmm.wordBlock();
-                    System.out.println();
                     do
                     {
                         Printer.inline(Printer.CYAN, "🤔 Enter your guess 📝: ");
@@ -135,7 +146,10 @@ public class App {
                 }
                 while(Hmm.NO_OF_ATTEMPTS != Hmm.ATTEMPTS);
                 Hmm.menu(2);
-                Hmm.printResult(isWinner, "SOLO");
+                Hmm.wordBlock();
+                Hmm.printResult(isWinner, "SOLO", 0);
+                Printer.inline(Printer.BLUE, "\n📝 Press enter to continue... ");
+                System.in.read();
             }
             else
             {
