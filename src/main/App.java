@@ -63,12 +63,11 @@ public class App {
                     }
                     while(P1Guess.length() != Hmm.LENGTH);
                     Hmm.getGuess(P1Guess);
-                    if (Hmm.checkWord())
+                    if (Hmm.checkWord(P1Guess))
                     {
                         isWinner = true;
                         Hmm.NO_OF_ATTEMPTS++;
                         winner = 1;
-                        Hmm.menu(2);
                         break;
                     }
                     Hmm.NO_OF_ATTEMPTS++;
@@ -86,12 +85,11 @@ public class App {
                     }
                     while(P2Guess.length() != Hmm2.LENGTH);
                     Hmm2.getGuess(P2Guess);
-                    if (Hmm2.checkWord())
+                    if (Hmm2.checkWord(P2Guess))
                     {
                         isWinner = true;
                         Hmm2.NO_OF_ATTEMPTS++;
                         winner = 2;
-                        Hmm2.menu(2);
                         break;
                     }
                     Hmm2.NO_OF_ATTEMPTS++;
@@ -135,11 +133,10 @@ public class App {
                     }
                     while(guess.length() != Hmm.LENGTH);
                     Hmm.getGuess(guess);
-                    isWinner = Hmm.checkWord();
+                    isWinner = Hmm.checkWord(guess);
                     if (isWinner)
                     {
                         Hmm.NO_OF_ATTEMPTS++;
-                        Hmm.menu(2);
                         break;
                     }
                     Hmm.NO_OF_ATTEMPTS++;

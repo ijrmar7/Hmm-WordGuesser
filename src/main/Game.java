@@ -27,13 +27,11 @@ public class Game {
     void newGame() {
         TO_GUESS = chooseWord().toUpperCase();
         NO_OF_ATTEMPTS = 0;
-        // Initialize the array to have some dash
         for (int i = 0; i < ATTEMPTS; i++) {
             for (int j = 0; j < LENGTH; j++) {
                 guessBox[i][j] = '_';
             }
         }
-        // Initialize the array to fill WRONG
         for (int i = 0; i < ATTEMPTS; i++) {
             for (int j = 0; j < LENGTH; j++) {
                 scores[i][j] = WRONG;
@@ -41,7 +39,6 @@ public class Game {
         }
     }
 
-    // Print Result
     void printResult(Boolean b, String mode, int winner) {
         if (mode == "SOLO") {
             writeHistory(mode);
@@ -82,7 +79,6 @@ public class Game {
         }
     }
 
-    // Delay
     void delay(int seconds) {
         try {
             Thread.sleep(seconds * 1000);
@@ -91,8 +87,6 @@ public class Game {
         }
     }
 
-
-    // Calculate Score
     int calculateScore() {
         int sum = 0;
         for(int i = 0; i < ATTEMPTS; i++)
@@ -105,7 +99,6 @@ public class Game {
         return sum;
     }
 
-    // Word Block
     void wordBlock() {
         System.out.println();
         for (int i = 0; i < ATTEMPTS; i++)
@@ -140,35 +133,29 @@ public class Game {
         System.out.println();
     }
 
-    // Check Word
-    Boolean checkWord() {
+    Boolean checkWord(String guess) {
         int sum = 0;
         for (int i = 0; i < LENGTH; i++)
         {
-            for (int j = 0; j < LENGTH; j++)
-            {
-                if (guessBox[NO_OF_ATTEMPTS][i] == TO_GUESS.charAt(j))
-                {
-                    if (i == j)
-                    {
+            for (int j = 0; j < LENGTH; j++) {
+                if (guessBox[NO_OF_ATTEMPTS][i] == TO_GUESS.charAt(j)) {
+                    if (i == j) {
                         scores[NO_OF_ATTEMPTS][i] = CORRECT;
                         sum += CORRECT;
                         break;
-                    }
-                    else
-                    {
+                    } else {
                         scores[NO_OF_ATTEMPTS][i] = CLOSE;
                         sum += CLOSE;
                     }
                 }
             }
         }
-        if (sum == 10)
+        if (sum >= 10 || TO_GUESS.equals(guess)) {
             return true;
+        }
         return false;
     }
 
-    // Get Guess
     void getGuess(String guess) {
         for (int i = 0; i < LENGTH; i++)
         {
@@ -176,7 +163,6 @@ public class Game {
         }
     }
 
-    // Write history
     void writeHistory(String mode) {
         int points = 60 - (NO_OF_ATTEMPTS * 10);
         LocalDateTime date = LocalDateTime.now();
@@ -190,7 +176,6 @@ public class Game {
         }
     }
 
-    // Choose Word
     String chooseWord() {
         File f = new File("words.txt");
         Scanner myReader;
@@ -213,7 +198,6 @@ public class Game {
         return word;
     }
 
-    // Menu
     void menu(int i) {
         System.out.print("\033[H\033[2J");  
         System.out.flush();  
