@@ -87,18 +87,6 @@ public class Game {
         }
     }
 
-    int calculateScore() {
-        int sum = 0;
-        for(int i = 0; i < ATTEMPTS; i++)
-        {
-            for (int j = 0; j < LENGTH; j++)
-            {
-                sum += scores[i][j];
-            }
-        }
-        return sum;
-    }
-
     void wordBlock() {
         System.out.println();
         for (int i = 0; i < ATTEMPTS; i++)
