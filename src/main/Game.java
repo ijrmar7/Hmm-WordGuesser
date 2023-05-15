@@ -155,7 +155,7 @@ public class Game {
         int points = 60 - (NO_OF_ATTEMPTS * 10);
         LocalDateTime date = LocalDateTime.now();
         try {
-            FileWriter fileWriter = new FileWriter(new File("history.csv"), true);
+            FileWriter fileWriter = new FileWriter(new File("history.txt"), true);
             fileWriter.write(mode + "," + TO_GUESS + "," + NO_OF_ATTEMPTS  + "," + points + "," + date + "\n");
             fileWriter.close();
         } catch (IOException e) {
@@ -247,11 +247,11 @@ public class Game {
             Printer.newline(Printer.CYAN, "📖 Game History: ");
             int n = 0;
             try {
-                Scanner csvScanner = new Scanner(new File("history.csv"));
-                csvScanner.nextLine();
-                while(csvScanner.hasNext()) {
+                Scanner textScanner = new Scanner(new File("history.txt"));
+                textScanner.nextLine();
+                while(textScanner.hasNext()) {
                     n++;
-                    String[] history = csvScanner.nextLine().split(",");
+                    String[] history = textScanner.nextLine().split(",");
                     Printer.newline(Printer.CYAN_BG, "                                       ");
                     System.out.print(Printer.CYAN_BG + "  " + Printer.RESET_ALL + " ");
                     Printer.inline(Printer.GREEN, "MODE: ");
@@ -294,7 +294,7 @@ public class Game {
                     Printer.newline(Printer.CYAN_BG, "                                       ");
                     System.out.println();
                 }
-                csvScanner.close();
+                textScanner.close();
             } catch (FileNotFoundException e) {
                 System.out.println("An error occured.");
                 e.printStackTrace();
